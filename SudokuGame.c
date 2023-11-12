@@ -20,11 +20,11 @@ int main()
 
     int grid [9][9];
 
+    printf("\nWelcome to Sudoku!\n\n");
+
     createPuzzle(r, c, grid);
 
     displayPuzzle(r, c, grid);
-
-    //hello
 
     return 0;
 }
