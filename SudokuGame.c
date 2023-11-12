@@ -24,7 +24,7 @@ int main()
 
     displayPuzzle(r, c, grid);
 
-    //hello world
+    //hello
 
     return 0;
 }
