@@ -53,7 +53,13 @@ void displayPuzzle(int r, int c, int boxes [r][c])
     {
         for(int j = 0; j < c; j++)
         {
-            printf("|  ?  ");
+            printf("|");
+
+            printf("\033[1;31m");
+
+            printf("  ?  ");
+
+            printf("\033[0;37m");
         }
 
         printf("|");
@@ -62,6 +68,8 @@ void displayPuzzle(int r, int c, int boxes [r][c])
         
         printf("-------------------------------------------------------\n");
     }
+
+    printf("\n");
 }
 
 void populateBox()
