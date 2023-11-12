@@ -5,12 +5,16 @@
 #include<string.h>
 #include<ctype.h>
 
-//prototypes
 void createPuzzle(int r, int c, int boxes [r][c]); 
+
 void displayPuzzle(int r, int c, int boxes [r][c]);
+
 void populateBox();
+
 void playRound();
+
 int playAgain();
+
 int winOrLose();
 
 int main()
