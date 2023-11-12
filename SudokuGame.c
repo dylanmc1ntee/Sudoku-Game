@@ -5,7 +5,8 @@
 #include<string.h>
 #include<ctype.h>
 
-void createPuzzle(int r, int c, int boxes [r][c]);
+//prototypes
+void createPuzzle(int r, int c, int boxes [r][c]); 
 void displayPuzzle(int r, int c, int boxes [r][c]);
 void populateBox();
 void playRound();
