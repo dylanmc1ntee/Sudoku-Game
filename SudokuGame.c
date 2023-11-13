@@ -9,6 +9,8 @@ void createPuzzle(int difficulty, int r, int c, int boxes [r][c]);
 
 void displayPuzzle(int r, int c, int boxes [r][c]);
 
+void makeGuess(int r, int c, int boxes[r][c]);
+
 void populateBox();
 
 void playRound();
@@ -37,7 +39,9 @@ int main()
 
     printf("Okay, creating your Sudoku Puzzle...\n\n");
 
-    //createPuzzle(difficulty, r, c, grid);
+    displayPuzzle(r, c, easyPuzzle);
+
+    makeGuess(r, c, easyPuzzle);
 
     displayPuzzle(r, c, easyPuzzle);
 
@@ -94,6 +98,29 @@ void displayPuzzle(int r, int c, int boxes [r][c])
     }
 
     printf("\n");
+}
+
+void makeGuess(int r, int c, int boxes[r][c])
+{
+    int row = 0;
+
+    int col = 0;
+
+    int guess = 0;
+
+    printf("Please enter the row and column of the box you would like to access (ex. 3 2).\n\n");
+
+    scanf(" %d%d", &row, &col);
+
+    printf("\n");
+
+    printf("What number: ");
+
+    scanf(" %d", &guess);
+
+    printf("\n");
+
+    boxes[row - 1][col - 1] = guess;
 }
 
 void populateBox()
