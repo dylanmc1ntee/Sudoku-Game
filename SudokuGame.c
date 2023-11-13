@@ -7,17 +7,9 @@
 
 void createPuzzle(int difficulty, int r, int c, int boxes [r][c]); 
 
-void displayPuzzle(int r, int c, int boxes [r][c]);
+int displayPuzzle(int r, int c, int boxes [r][c]);
 
 void makeGuess(int r, int c, int boxes[r][c]);
-
-void populateBox();
-
-void playRound();
-
-int playAgain();
-
-int winOrLose();
 
 int main()
 {
@@ -29,21 +21,18 @@ int main()
 
     int difficulty = 0;
 
+    int empty;
+
     printf("\nWelcome to Sudoku!\n\n");
 
-    printf("How hard would you like your puzzle to be from 1-3?\n\n");
+    empty = displayPuzzle(r, c, easyPuzzle);
 
-    scanf(" %d", &difficulty);
+    while(empty != 0)
+    {
+        makeGuess(r, c, easyPuzzle);
 
-    printf("\n");
-
-    printf("Okay, creating your Sudoku Puzzle...\n\n");
-
-    displayPuzzle(r, c, easyPuzzle);
-
-    makeGuess(r, c, easyPuzzle);
-
-    displayPuzzle(r, c, easyPuzzle);
+        empty = displayPuzzle(r, c, easyPuzzle);
+    }
 
     return 0;
 }
@@ -64,8 +53,10 @@ void createPuzzle(int difficulty, int r, int c, int boxes [r][c])
     }
 }
 
-void displayPuzzle(int r, int c, int boxes [r][c])
+int displayPuzzle(int r, int c, int boxes [r][c])
 {
+    int empty = 0;
+
     printf("-------------------------------------------------------\n");
 
     for(int i = 0; i < r; i++)
@@ -79,6 +70,8 @@ void displayPuzzle(int r, int c, int boxes [r][c])
             if(boxes[i][j] == 0)
             {
                 printf("  ?  ");
+
+                empty++;
             }
             else
             {
@@ -98,6 +91,8 @@ void displayPuzzle(int r, int c, int boxes [r][c])
     }
 
     printf("\n");
+
+    return empty;
 }
 
 void makeGuess(int r, int c, int boxes[r][c])
@@ -121,24 +116,4 @@ void makeGuess(int r, int c, int boxes[r][c])
     printf("\n");
 
     boxes[row - 1][col - 1] = guess;
-}
-
-void populateBox()
-{
-
-}
-
-void playRound()
-{
-
-}
-
-int playAgain()
-{
-    return 1;
-}
-
-int winOrLose()
-{
-    return 1;
 }
